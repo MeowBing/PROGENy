@@ -1,7 +1,8 @@
 FROM cuhkhaosun/base
 
-RUN install.packages("devtools") \ 
-    && devtools::install_github("saezlab/progeny")
+RUN R -e 'if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")' \
+    && R -e 'BiocManager::install("progeny")'
+
 
 
 WORKDIR /app
