@@ -1,8 +1,7 @@
 FROM cuhkhaosun/base
 
-RUN if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager") \
-    && BiocManager::install("progeny")
+RUN install.packages("devtools") \ 
+    && devtools::install_github("saezlab/progeny")
 
 
 WORKDIR /app
